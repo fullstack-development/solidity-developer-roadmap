@@ -11,4 +11,7 @@
 
 ### Ресурсы:
 
+### Wiki
+- [concepts](./wiki/concepts/README.md)
+
 
