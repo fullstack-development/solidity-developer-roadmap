@@ -14,14 +14,14 @@
 
 **Рассмотрим на примере interfaceId для ERC-721:**
 
-Чтобы вычислить идентификатор интерфейса для ERC-721, нужно взять хэш keccak-256 селктора каждой функции, затем взять первые 4 байта результата. Каждая функция имеет свой собственный идентификатор интерфейса.
+Чтобы вычислить идентификатор интерфейса для ERC-721, нужно взять хэш keccak-256 селектора каждой функции, затем взять первые 4 байта результата. Каждая функция имеет свой собственный идентификатор интерфейса.
 
 Для объединения всех хэшей использует операцию `XOR` (исключающее ИЛИ) - это позволяет получать один и тот же хэш `interfaceId` независимо от того в каком порядке были переданы селекторы функций.
 
 Таким образом, чтобы вычислить идентификатор интерфейса с помощью EIP-165, нужно сначала получить селектор для каждой функции в интерфейсе смарт-контракта, а затем использовать операцию `XOR` для их объединения.
 
 ```js
-	bytes4(keccak256('balanceOf(address)')) == 0x70a08231
+    bytes4(keccak256('balanceOf(address)')) == 0x70a08231
     bytes4(keccak256('ownerOf(uint256)')) == 0x6352211e
     bytes4(keccak256('approve(address,uint256)')) == 0x095ea7b3
     bytes4(keccak256('getApproved(uint256)')) == 0x081812fc
@@ -95,3 +95,5 @@ contract Selector {
 - [EIP-165: Standard Interface Detection](https://eips.ethereum.org/EIPS/eip-165) 
 - [Пример с ERC721](https://ethereum.stackexchange.com/questions/82822/obtaining-erc721-interface-ids) 
 - [Для чего нужен interfaceId](https://ethereum.stackexchange.com/questions/71560/erc721-interface-id-registration)
+- [Документация openzeppelin](https://docs.openzeppelin.com/contracts/4.x/api/utils#introspection)
+- [Объяснение EIP165](https://medium.com/@chiqing/ethereum-standard-erc165-explained-63b54ca0d273) - открывать в режиме инкогнито
