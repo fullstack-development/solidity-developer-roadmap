@@ -24,5 +24,6 @@
 * [Testing simple smart contract with Waffle library](https://ethereum.org/en/developers/tutorials/waffle-test-simple-smart-contract/)
 * [Testing ERC-20 tokens with waffle](https://ethereum.org/en/developers/tutorials/testing-erc-20-tokens-with-waffle/)
 * [How to mock solidity contracts for testing](https://ethereum.org/en/developers/tutorials/how-to-mock-solidity-contracts-for-testing/)
+* [How Do You Even Write Secure Code Anyways, Samczsun - DeFi Security Summit 2022](https://youtu.be/Wm3t8Fuiy1E)
 * [Обзор инструмента tenderly](https://github.com/fullstack-development/blockchain-wiki/blob/main/tools/tenderly.md#%D0%BE%D0%B1%D0%B7%D0%BE%D1%80-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0-tenderly)
 * [Intro to Solidity Linting and Formatting](https://medium.com/coinmonks/introduction-to-solidity-linting-and-formatting-e838c074791a)
