@@ -4,3 +4,6 @@
 - [Solidity](./solidity/README.md)
 - [DEFI](./defi/README.md)
 - [Testing](./testing/README.md)
+
+## Recommendations
+- [Code Style](./code-style/readme.md)
