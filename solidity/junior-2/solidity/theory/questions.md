@@ -10,6 +10,97 @@
 3. Чем отличается Try / Catch от других вариантов обработки ошибок(require, assert, revert)?
   - Может ли вызов функции через call заменить конструкцию Try / Catch?
 
+## Import
+1. Идея ```import``` основана на **коцепции модулей**. В чем основная суть этого концепта?
+2. Local **vs** external. В чем разница?
+3. **Specific import**. Как этим пользоваться?
+  - Нужно ли стремиться использовать **specific import** за место импорта всего, что есть в файле? Например, ```import "./Storage.sol"```
+  - Что можно импортировать из файла ```Storage.sol``` для использования в контракте ```SpecificImport```?
+
+  ```solidity
+    /// SpecificImport.sol
+
+    // SPDX-License-Identifier: MIT
+
+    pragma solidity 0.8.17;
+
+    import {
+        // Что можно импортировать из контракта Storage?
+    } from "./Storage.sol";
+
+    contract SpecificImport {}
+  ```
+
+  ```solidity
+    /// Storage.sol
+
+    // SPDX-License-Identifier: MIT
+
+    pragma solidity 0.8.17;
+
+    address constant OWNER = 0x607B5e673D3ea42A0F85aDD6f529196500FC9E04;
+    uint256 constant STORAGE_SLOT = 113;
+
+    struct StorageList {
+        address storageContract;
+    }
+
+    interface IStorage {
+        function getStorageSlot() external view returns (uint256);
+        function setStorageSlot(uint256 newStorageSlot) external;
+    }
+
+    library Array {
+        function removeItem(uint256 index) external {}
+    }
+
+    enum STATUS {
+        ACTIVE,
+        PAUSED
+    }
+
+    error Storage_SetStorageLimit();
+
+    // User-defined value type. More https://docs.soliditylang.org/en/v0.8.13/types.html#user-defined-value-types
+    type UFixed256x18 is uint256;
+
+    contract Storage {
+        uint256 private _storageSlot = STORAGE_SLOT;
+        uint256 _maxSetStorageCount;
+
+        mapping(address => uint256) _counter;
+
+        event StorageSlotUpdated(address sender);
+
+        constructor(uint256 maxSetStorageCount) {
+            _maxSetStorageCount = maxSetStorageCount;
+        }
+
+        function getStorageSlot() external view returns (uint256) {
+            return _storageSlot;
+        }
+
+        function setStorageSlot(uint256 newStorageSlot) external {
+            if (_counter[msg.sender] >= _maxSetStorageCount) {
+                revert Storage_SetStorageLimit();
+            }
+
+            _storageSlot = newStorageSlot;
+
+            _counter[msg.sender] += _counter[msg.sender];
+
+            emit StorageSlotUpdated(msg.sender);
+        }
+    }
+
+    function createStorage(uint256 maxSetStorageCount) returns (address)  {
+        Storage storageImpl = new Storage(maxSetStorageCount);
+        return address(storageImpl);
+    }
+
+   ```
+4. **Import Aliases**. Ключевое слово **as**. Для чего это нужно?
+
 ## Upgradeable контракты
 1. Что такое обновляемые контракты? Для чего это нужно?
 2. Можно ли мигрировать данные с одного смарт-контракта на другой?
