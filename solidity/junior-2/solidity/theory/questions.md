@@ -1,6 +1,25 @@
 
 # Вопросы по Solidity
 
+## Creating Contracts from a Contract
+
+1. Какие есть два возможных способа создания контрактов?
+2. Как создать контракт через new? Что на самом деле внутри происходит при создании таким способом?
+3. Как передать эфир при создании контракта?
+4. Как создать контракт через create?
+5. Как создать контракт через create2?
+6. Какие различия между create и create2? Как уних происходит образование адреса контракта? Почему не безопасно создавать через create?
+7. Можно ли каким-то образом передеплоить смарт-контракт на тот же адрес но с другим кодом?
+8. Что такое Factory pattern в solidity? Какие есть типы? какие преимущества их использования? Когда необходимо их использовать?
+ 
+
+
+### Литература:
+- [solidity by example](https://solidity-by-example.org/new-contract/)
+- [EVM Dialect](https://docs.soliditylang.org/en/v0.8.18/yul.html#evm-dialect)
+- [about create and create2](https://mixbytes.io/blog/pitfalls-of-using-cteate-cteate2-and-extcodesize-opcodes)
+- [factory patterns](https://blog.logrocket.com/cloning-solidity-smart-contracts-factory-pattern/)
+
 ## Upgradeable контракты
 1. Что такое обновляемые контракты? Для чего это нужно?
 2. Можно ли мигрировать данные с одного смарт-контракта на другой?
