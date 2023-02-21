@@ -1,6 +1,6 @@
 # NFT-721
 
-- Пройти [Lesson 14: Hardhat ERC20s](https://github.com/smartcontractkit/full-blockchain-solidity-course-js#lesson-14-hardhat-nfts-everything-you-need-to-know-about-nfts)
+- Пройти [Lesson 14: Hardhat ERC721](https://github.com/smartcontractkit/full-blockchain-solidity-course-js#lesson-14-hardhat-nfts-everything-you-need-to-know-about-nfts)
 
 Критерии прохождения задания:
  - Изучить стандарт ERC-721, разобрать все основные методы.
