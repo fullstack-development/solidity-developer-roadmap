@@ -1,7 +1,7 @@
 
 # Вопросы по Solidity
 
-# Function selector
+## Function selector
 
 1. Что такое селектор функций и как он создается в Solidity? Какие есть способы получить селектор функции в смарт-контракте? (как минимум 3)
 2. Как селекторы функций связаны с ABI (Application Binary Interface) в Solidity и какое значение имеет ABI для разработки контрактов?
@@ -11,7 +11,7 @@
 6. Как селекторы функций используются в событиях Ethereum?
 7. Как можно использовать селекторы функций для оптимизации использования газа в контрактах Solidity?
 
-- [Solidity docs](https://docs.soliditylang.org/en/develop/abi-spec.html#types)
+- [Solidity docs](https://docs.soliditylang.org/en/develop/abi-spec.html#function-selector)
 - [A technical primer on using encoded function calls](https://medium.com/linum-labs/a-technical-primer-on-using-encoded-function-calls-50e2b9939223)
 - [How To Decipher A Smart Contract Method Call](https://medium.com/@hayeah/how-to-decipher-a-smart-contract-method-call-8ee980311603)
 - [Advanced gas optimization tips for Solidity](https://coinsbench.com/advanced-gas-optimizations-tips-for-solidity-85c47f413dc5#:~:text=to%20gas%20specifications.-,Function%20names,-Solidity%20compiler%20reads)
