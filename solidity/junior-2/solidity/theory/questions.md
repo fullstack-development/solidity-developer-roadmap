@@ -7,6 +7,7 @@
 2. Как селекторы функций связаны с ABI (Application Binary Interface) в Solidity и какое значение имеет ABI для разработки контрактов?
 3. Можете ли быть так, что две функции в контракте Solidity могут иметь одинаковое имя, но разные селекторы функций?
 4. Отличаются ли вычисление селекторов функций в разных версиях Solidity? Как обеспечить совместимость между разными версиями Solidity?
+5. Как можно использовать селекторы функций для оптимизации использования газа в контрактах Solidity?
 
 - [Solidity docs](https://docs.soliditylang.org/en/develop/abi-spec.html#function-selector)
 - [A technical primer on using encoded function calls](https://medium.com/linum-labs/a-technical-primer-on-using-encoded-function-calls-50e2b9939223)
