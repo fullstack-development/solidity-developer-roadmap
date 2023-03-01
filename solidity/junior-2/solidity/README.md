@@ -1,6 +1,8 @@
 # Solidity
 
+## Theory
+  - [Questions](./theory/questions.md)
 
-### Ресурсы:
+## Practice
 
-
+## Links
