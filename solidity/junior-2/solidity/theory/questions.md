@@ -13,6 +13,20 @@
 
 - [Solidity docs](https://docs.soliditylang.org/en/v0.8.19/control-structures.html#try-catch)
 
+## Contract ABI Specification
+
+1. Кто генерирует ABI? Что из себя представляет ABI?
+  - Что обозначают поля: type, name, inputs, outputs, stateMutability в ABI?
+2. Какие типы Solidity не являются частью ABI?
+3. Как кодируются статические типы?
+4. Как кодируются динамические типы?
+5. Как кодируются вызовы функций?
+6. Как кодируются ошибки?
+7. Как кодируются события?
+  - Как кодируются индексированные аргументы?
+
+- [Solidity docs](https://docs.soliditylang.org/en/v0.8.19/abi-spec.html#contract-abi-specification)
+
 ## Import
 
 1. Идея ```import``` основана на **коцепции модулей**. В чем основная суть этого концепта?
