@@ -25,7 +25,8 @@
 7. В какие сети можно разворачивать смарт-контракты?
 8. Что такое ABI?
   - Какие функции не попадут в ABI?
-9. Что такое bytecode?
+1. Что такое bytecode?
+  - Как bytecode связан с ABI?
 
 ## Структура контракта Solidity
 
@@ -97,7 +98,7 @@
 3. Что такое глобальная переменная msg?
   - Чем отличается tx.origin и msg.sender?
 4. Для чего используется abi.encode и abi.decode?
-5. В чем разница между abi.encode и abi.encodePacked?
+5. В чем разница между abi.encode и abi.encodePacked? Есть ли какие-нибудь нюансы в выборе, что использовать?
 6. В чем разница между encodeWithSignature и encodeWithSelector?
 7. Как работает конкатенация строк и байтов?
 8. Что ты знаешь про Error Handling(assert, require, revert)?
