@@ -186,7 +186,6 @@
 
 ## Creating Contracts
 
-
 1. Какие есть два возможных способа создания контрактов?
 2. Как создать контракт через new? Что на самом деле внутри происходит при создании таким способом?
 3. Для чего нужен constructor? Сколько раз он вызывается? Можно ли делать перегрузку для constructor
@@ -267,7 +266,7 @@
 - [Математические и криптографические функции](https://docs.soliditylang.org/en/v0.8.19/units-and-global-variables.html#mathematical-and-cryptographic-functions)
 - [EIP-191](https://eips.ethereum.org/EIPS/eip-191)
 - [Testing EIP-712 Signatures](https://book.getfoundry.sh/tutorials/testing-eip712)
--
+
 ## Meta transactions
 
 1. Что такое метатранзакции?
@@ -285,3 +284,84 @@
   - [ERC-2771](https://eips.ethereum.org/EIPS/eip-2771)
   - [Gas Station Network](https://docs.opengsn.org/)
 
+## Unchecked Math
+
+1. Что такое **Integer Overflow/Underflow** в solidity?
+2. Для чего используется библиотека Safe Math от OpenZeppelin? Нужно ли в версии solidity выше 0.8 использовать библиотеку Safe Math?
+3. Для чего в solidity существует **unchecked**?
+
+4. Расскажи, что вернет функция ```getCounter()```, после вызова функции ```increase()``` или ```decrease()``` в каждой реализации контракта ```Counter```.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.0;
+
+contract Counter {
+    uint8 _counter= 255;
+
+    function increase() public payable {
+        _counter++;
+    }
+
+    function getCounter() external view returns(uint8) {
+        return _counter;
+    }
+}
+```
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.0;
+
+contract Counter {
+    uint8 _counter= 255;
+
+    function increase() public payable {
+        unchecked {_counter++;}
+    }
+
+    function getCounter() external view returns(uint8) {
+        return _counter;
+    }
+}
+```
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.7.0;
+
+contract Counter {
+    uint8 _counter= 255;
+
+    function increase() public payable {
+        _counter++;
+    }
+
+    function getCounter() external view returns(uint8) {
+        return _counter;
+    }
+}
+```
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.0;
+
+contract Counter {
+    int8 _counter= -128;
+
+    function decrease() public payable {
+        unchecked {_counter--;}
+    }
+
+    function getCounter() external view returns(int8) {
+        return _counter;
+    }
+}
+```
+
+5. Как можно использовать **unchecked** для уменьшения затрат газа при работе с циклами?
+
+- [Integer Overflow and Underflow](https://blog.solidityscan.com/integer-overflow-and-underflow-in-smart-contracts-9598032b5a99)
+- [Sample Smart Contract to see how it works](https://ethereum-blockchain-developer.com/010-solidity-basics/03-integer-overflow-underflow/)
+- [Unchecked arithmetic trick](https://medium.com/@ashwin.yar/solidity-tips-and-tricks-1-unchecked-arithmetic-trick-cefa18792f0b)
