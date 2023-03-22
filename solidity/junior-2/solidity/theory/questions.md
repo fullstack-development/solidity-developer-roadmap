@@ -20,6 +20,7 @@
 - [Learn Solidity lesson 34. Call, staticcall and delegatecall](https://medium.com/coinmonks/call-staticcall-and-delegatecall-1f0e1853340)
 - [Solidity by example - Call](https://solidity-by-example.org/call/)
 - [SWC-112 - delegatecall](https://swcregistry.io/docs/SWC-112)
+- [What is gas limit](https://ethereum.org/en/developers/docs/gas/#what-is-gas-limit)
 
 ## Try / Catch
 
