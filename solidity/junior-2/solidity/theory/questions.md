@@ -194,7 +194,7 @@
 5. Как создать контракт через create? Как создать контракт через create2? Какие различия между create и create2? Как у них происходит образование адреса контракта? Почему не безопасно создавать через create?
 6. Можно ли каким-то образом передеплоить смарт-контракт на тот же адрес но с другим кодом?
 7. Что такое Factory pattern в solidity? Какие есть типы? какие преимущества их использования? Когда необходимо их использовать?
- 
+
 - [solidity by example](https://solidity-by-example.org/new-contract/)
 - [EVM Dialect](https://docs.soliditylang.org/en/v0.8.18/yul.html#evm-dialect)
 - [about create and create2](https://mixbytes.io/blog/pitfalls-of-using-cteate-cteate2-and-extcodesize-opcodes)
@@ -255,3 +255,20 @@
 - [Математические и криптографические функции](https://docs.soliditylang.org/en/v0.8.19/units-and-global-variables.html#mathematical-and-cryptographic-functions)
 - [EIP-191](https://eips.ethereum.org/EIPS/eip-191)
 - [Testing EIP-712 Signatures](https://book.getfoundry.sh/tutorials/testing-eip712)
+-
+## Meta transactions
+
+1. Что такое метатранзакции?
+2. Для чего можно применять метатранзакции? Назвать не менее трех вариантов использования.
+3. Какая основная идея стандарта ERC-2771?
+  - Какая задача отводится контракту **Forwarder**?
+  - Для чего необходимо использовать ```_msgSender()``` вместо ```msg.sender```?
+4. Gas Station Network - это пример проекта с открытым исходным кодом, который помогает реализовать метатранзакции. Можешь рассказать, как он устроен, как работает, его верхнеуровневую архитектуру?
+  - Для чего необходимо реализовать контракт ```Paymaster```?
+  - Можно ли использовать [контракты из библиотеки OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/metatx) для организации метатранзакций?
+  - Какие еще есть сервисы, которые можно использовать для организации метатранзакций?
+5. Творческий вопрос. Как ты считаешь, на сколько важны метатранзакции? Есть ли у них будущее? Нарушают ли они какие-нибудь законы децентрализации?
+
+  - [Gas-free transactions: Meta Transactions explained](https://medium.com/coinmonks/gas-free-transactions-meta-transactions-explained-f829509a462d)
+  - [ERC-2771](https://eips.ethereum.org/EIPS/eip-2771)
+  - [Gas Station Network](https://docs.opengsn.org/)
