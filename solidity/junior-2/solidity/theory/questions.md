@@ -14,6 +14,29 @@
 -   [Advanced gas optimization tips for Solidity](https://coinsbench.com/advanced-gas-optimizations-tips-for-solidity-85c47f413dc5#:~:text=to%20gas%20specifications.-,Function%20names,-Solidity%20compiler%20reads)
 -   [ERC-165: Standard Interface Detection](https://github.com/fullstack-development/blockchain-wiki/blob/main/EIPs/erc-165.md)
 
+## Call, staticcall, delegatecall, сalling other сontract
+
+1. Для чего нужна низкоуровневая функция `call`, какие аргументы принимает?
+2. Что возвращает функция `call`? Как декодировать возвращаемые значения?
+3. Почему метод передачи эфира через `call` является предпочтительным?
+4. Можно ли указывать лимит газа для транзакции при вызове `call`? Если да, то зачем указывать лимит газа и какие могут быть проблемы?
+5. Для чего нужна низкоуровневая функция `staticcall`, в чем отличие от `call`?
+6. Для чего нужна низкоуровневая функция `delegatecall`, в чем отличие от `call` и `staticcall`?
+7. Какие возможны уязвимости связанные с `delegatecall`?
+8. Как все эти функции связаны с `msg.value` и `msg.data`?
+9. Как вызвать другой контракт с помощью этих функций? Как вызвать конкретную функцию другого контракта с аргументами?
+10. По каким причинам низкоуровневый вызов других смарт-контрактов через `call` не является предпочтительным?
+11. Приведи несколько примеров, когда без низкоуровневого вызова другого смарт-контракта через `call` и `delegatecall` не обойтись?
+
+- [Solidity docs: ](https://docs.soliditylang.org/en/v0.8.19/introduction-to-smart-contracts.html#message-calls)
+- [Solidity docs: Members of Address Types](https://docs.soliditylang.org/en/v0.8.11/units-and-global-variables.html#members-of-address-types)
+- [Staticcall](https://eips.ethereum.org/EIPS/eip-214)
+- [Delegatecall](https://eips.ethereum.org/EIPS/eip-7)
+- [Learn Solidity lesson 34. Call, staticcall and delegatecall](https://medium.com/coinmonks/call-staticcall-and-delegatecall-1f0e1853340)
+- [Solidity by example - Call](https://solidity-by-example.org/call/)
+- [SWC-112 - delegatecall](https://swcregistry.io/docs/SWC-112)
+- [What is gas limit](https://ethereum.org/en/developers/docs/gas/#what-is-gas-limit)
+
 ## Try / Catch
 
 1. Что такое Try / Catch? Как эта конструкция используется в языке Solidity? Какие могут быть причины ошибки вызова функции смарт-контракта?
