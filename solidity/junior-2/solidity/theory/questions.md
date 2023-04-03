@@ -17,6 +17,8 @@
 
 - [Solidity docs: ](https://docs.soliditylang.org/en/v0.8.19/introduction-to-smart-contracts.html#message-calls)
 - [Solidity docs: Members of Address Types](https://docs.soliditylang.org/en/v0.8.11/units-and-global-variables.html#members-of-address-types)
+- [Staticcall](https://eips.ethereum.org/EIPS/eip-214)
+- [Delegatecall](https://eips.ethereum.org/EIPS/eip-7)
 - [Learn Solidity lesson 34. Call, staticcall and delegatecall](https://medium.com/coinmonks/call-staticcall-and-delegatecall-1f0e1853340)
 - [Solidity by example - Call](https://solidity-by-example.org/call/)
 - [SWC-112 - delegatecall](https://swcregistry.io/docs/SWC-112)
