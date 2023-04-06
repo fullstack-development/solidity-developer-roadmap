@@ -184,6 +184,21 @@
 - [Solidity docs](https://docs.soliditylang.org/en/v0.8.19/contracts.html#libraries)
 - [Solidity Tutorial: all about Libraries](https://jeancvllr.medium.com/solidity-tutorial-all-about-libraries-762e5a3692f9)
 
+## Creating Contracts
+
+
+1. Какие есть два возможных способа создания контрактов?
+2. Как создать контракт через new? Что на самом деле внутри происходит при создании таким способом?
+3. Для чего нужен constructor? Сколько раз он вызывается? Можно ли делать перегрузку для constructor
+4. Как передать эфир при создании контракта?
+5. Как создать контракт через create? Как создать контракт через create2? Какие различия между create и create2? Как у них происходит образование адреса контракта? Почему не безопасно создавать через create?
+6. Можно ли каким-то образом передеплоить смарт-контракт на тот же адрес но с другим кодом?
+7. Что такое Factory pattern в solidity? Какие есть типы? какие преимущества их использования? Когда необходимо их использовать?
+ 
+- [solidity by example](https://solidity-by-example.org/new-contract/)
+- [EVM Dialect](https://docs.soliditylang.org/en/v0.8.18/yul.html#evm-dialect)
+- [about create and create2](https://mixbytes.io/blog/pitfalls-of-using-cteate-cteate2-and-extcodesize-opcodes)
+- [factory patterns](https://blog.logrocket.com/cloning-solidity-smart-contracts-factory-pattern/)
 
 ## Upgradeable контракты
 
