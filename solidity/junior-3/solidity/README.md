@@ -62,7 +62,29 @@
     - Для чего используются Keepers?
 5. Творческий вопрос. Как ты считаешь оракулы это больше про "возможности" или "опасности"? Это безопасный способ взаимодействия смарт-контрактов с внешним миром или это потенциально узкое место, которое вредит децентрализации и к тому же подобное решение легко взломать? Здесь нужно рассказать собственное отношение к оракулам.
 
-  - [WHY DO SMART CONTRACTS NEED ORACLES?](https://ethereum.org/en/developers/docs/oracles/#why-do-smart-contracts-need-oracles)
-  - [Oracles](https://ethereum.org/en/developers/docs/oracles/)
-  - [Implementing a Blockchain Oracle on Ethereum](https://medium.com/@pedrodc/implementing-a-blockchain-oracle-on-ethereum-cedc7e26b49e)
-  - [Chainlink](https://chain.link/)
+- [WHY DO SMART CONTRACTS NEED ORACLES?](https://ethereum.org/en/developers/docs/oracles/#why-do-smart-contracts-need-oracles)
+- [Oracles](https://ethereum.org/en/developers/docs/oracles/)
+- [Implementing a Blockchain Oracle on Ethereum](https://medium.com/@pedrodc/implementing-a-blockchain-oracle-on-ethereum-cedc7e26b49e)
+- [Chainlink](https://chain.link/)
+
+## Evm opcodes
+
+1. Что такое opcodes?
+    - Что означает цепочка ```Solidity → Байт-код → Opcodes```?
+    - Для чего необходимо базовое понимание opcodes?
+2. Известно, что opcodes условно делятся на несколько групп. Твоя задача на каждую группу привести в пример несколько opcodes и обозначить предназначение всей группы.
+    - Управление стеком.
+    - Арифметика
+    - Операции среды
+    - Управление памятью memory
+    - Управление памятью storage
+    - Управление program counter
+    - Остановка процесса
+3. За выполнение каждого opcode, требуется оплата за выполнение в сети. Оплата выражена в единицах, которые называются газ.
+    - В чем разница между базовой стоимостью выполнения opcode и динамической?
+    - Какой самый дорогой opcode? Сколько газа он требует?
+4. Что делает следующий байт-код? Какой будет результат выполнения?
+   > 6002600404600201
+
+- [Evm opcodes](https://www.evm.codes/?fork=shanghai)
+- [The Ethereum Virtual Machine — How does it work?](https://medium.com/mycrypto/the-ethereum-virtual-machine-how-does-it-work-9abac2b7c9e)
