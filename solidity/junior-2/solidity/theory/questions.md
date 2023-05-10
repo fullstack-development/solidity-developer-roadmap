@@ -229,6 +229,18 @@
 
 7. В чем плюсы и минусы использования обновляемых контрактов?
 
+## Keccak256
+
+1. Что такое хэш-функции? Для чего они нужны?
+2. Почему в solidity используется функция `keccak256`?
+3. Как эта функция используется на уровне языка Solidity?
+4. В каких случаях может понадобиться хэшировать данные на смарт-контракте? Как это сделать?
+5. Есть ли различия между хэшированием и шифрованием?
+
+- [Hashing Functions In Solidity Using Keccak256](https://medium.com/0xcode/hashing-functions-in-solidity-using-keccak256-70779ea55bb0)
+- [Hashing with Keccak256](https://solidity-by-example.org/hashing/)
+- [SHA-3 Standard](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf)
+
 ## Digital signatures
 
 1. Что такое цифровая подпись? Для чего используется подпись?
@@ -272,3 +284,4 @@
   - [Gas-free transactions: Meta Transactions explained](https://medium.com/coinmonks/gas-free-transactions-meta-transactions-explained-f829509a462d)
   - [ERC-2771](https://eips.ethereum.org/EIPS/eip-2771)
   - [Gas Station Network](https://docs.opengsn.org/)
+
