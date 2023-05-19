@@ -1,7 +1,7 @@
 # Solidity
 
 ## Theory
-  - [Questions](./theory/questions.md)
+  - [Common questions](./theory/common-questions.md)
 
 ## Practice
 
