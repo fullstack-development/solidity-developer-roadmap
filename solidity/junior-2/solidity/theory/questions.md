@@ -1,5 +1,99 @@
 # Вопросы по Solidity
 
+## Try / Catch
+
+1. Что такое try / catch? Как эта конструкция используется в языке Solidity? Какие могут быть причины ошибки вызова функции смарт-контракта?
+2. Какие типы блоков Catch поддерживаются в Solidity?
+    - Какой тип блока catch используется для ```revert("reasonString")```?
+    - Какой тип блока catch используется, если ошибка была вызвана делением на ноль?
+    - Какие типы блока catch используется, если ошибка не подходит под два предыдущих случая, но ошибку необходимо обработать?
+3. Чем отличается try / catch от других вариантов обработки ошибок(require, assert, revert)?
+4. Может ли вызов функции через call заменить конструкцию try / catch?
+
+- [Solidity docs](https://docs.soliditylang.org/en/v0.8.19/control-structures.html#try-catch)
+
+## Unchecked Math
+
+1. Что такое **overflow/underflow** в solidity?
+2. Для чего используется библиотека Safe Math от OpenZeppelin? Нужно ли в версии solidity выше 0.8 использовать библиотеку Safe Math?
+3. Для чего в solidity существует **unchecked**?
+
+4. Расскажи, что вернет функция ```getCounter()```, после вызова функции ```increase()``` или ```decrease()``` в каждой реализации контракта ```Counter```.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.0;
+
+contract Counter {
+    uint8 _counter= 255;
+
+    function increase() public payable {
+        _counter++;
+    }
+
+    function getCounter() external view returns(uint8) {
+        return _counter;
+    }
+}
+```
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.0;
+
+contract Counter {
+    uint8 _counter= 255;
+
+    function increase() public payable {
+        unchecked {_counter++;}
+    }
+
+    function getCounter() external view returns(uint8) {
+        return _counter;
+    }
+}
+```
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.7.0;
+
+contract Counter {
+    uint8 _counter= 255;
+
+    function increase() public payable {
+        _counter++;
+    }
+
+    function getCounter() external view returns(uint8) {
+        return _counter;
+    }
+}
+```
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.0;
+
+contract Counter {
+    int8 _counter= -128;
+
+    function decrease() public payable {
+        unchecked {_counter--;}
+    }
+
+    function getCounter() external view returns(int8) {
+        return _counter;
+    }
+}
+```
+
+5. Как можно использовать **unchecked** для уменьшения затрат газа при работе с циклами?
+
+- [Integer Overflow and Underflow](https://blog.solidityscan.com/integer-overflow-and-underflow-in-smart-contracts-9598032b5a99)
+- [Sample Smart Contract to see how it works](https://ethereum-blockchain-developer.com/010-solidity-basics/03-integer-overflow-underflow/)
+- [Unchecked arithmetic trick](https://medium.com/@ashwin.yar/solidity-tips-and-tricks-1-unchecked-arithmetic-trick-cefa18792f0b)
+
 ## Function selector
 
 1. Что такое сигнатура функции? Что такое селектор функций и как он создается в Solidity? Какие есть способы получить селектор функции в смарт-контракте? (назвать несколько)
@@ -13,6 +107,20 @@
 -   [How To Decipher A Smart Contract Method Call](https://medium.com/@hayeah/how-to-decipher-a-smart-contract-method-call-8ee980311603)
 -   [Advanced gas optimization tips for Solidity](https://coinsbench.com/advanced-gas-optimizations-tips-for-solidity-85c47f413dc5#:~:text=to%20gas%20specifications.-,Function%20names,-Solidity%20compiler%20reads)
 -   [ERC-165: Standard Interface Detection](https://github.com/fullstack-development/blockchain-wiki/blob/main/EIPs/erc-165.md)
+
+## Contract ABI Specification
+
+1. Кто генерирует ABI? Что из себя представляет ABI?
+    - Что обозначают поля: type, name, inputs, outputs, stateMutability в ABI?
+2. Какие типы Solidity не являются частью ABI?
+3. Как кодируются статические типы?
+4. Как кодируются динамические типы?
+5. Как кодируются вызовы функций?
+6. Как кодируются ошибки?
+7. Как кодируются события?
+    - Как кодируются индексированные аргументы?
+
+- [Solidity docs](https://docs.soliditylang.org/en/v0.8.19/abi-spec.html#contract-abi-specification)
 
 ## Call, staticcall, delegatecall, сalling other сontract
 
@@ -37,39 +145,13 @@
 - [SWC-112 - delegatecall](https://swcregistry.io/docs/SWC-112)
 - [What is gas limit](https://ethereum.org/en/developers/docs/gas/#what-is-gas-limit)
 
-## Try / Catch
-
-1. Что такое Try / Catch? Как эта конструкция используется в языке Solidity? Какие могут быть причины ошибки вызова функции смарт-контракта?
-2. Какие типы блоков Catch поддерживаются в Solidity?
-  - Какой тип блока catch используется для ```revert("reasonString")```?
-  - Какой тип блока catch используется, если ошибка была вызвана делением на ноль?
-  - Какие типы блока catch используется, если ошибка не подходит под два предыдущих случая, но ошибку необходимо обработать?
-3. Чем отличается Try / Catch от других вариантов обработки ошибок(require, assert, revert)?
-4. Может ли вызов функции через call заменить конструкцию Try / Catch?
-
-- [Solidity docs](https://docs.soliditylang.org/en/v0.8.19/control-structures.html#try-catch)
-
-## Contract ABI Specification
-
-1. Кто генерирует ABI? Что из себя представляет ABI?
-  - Что обозначают поля: type, name, inputs, outputs, stateMutability в ABI?
-2. Какие типы Solidity не являются частью ABI?
-3. Как кодируются статические типы?
-4. Как кодируются динамические типы?
-5. Как кодируются вызовы функций?
-6. Как кодируются ошибки?
-7. Как кодируются события?
-  - Как кодируются индексированные аргументы?
-
-- [Solidity docs](https://docs.soliditylang.org/en/v0.8.19/abi-spec.html#contract-abi-specification)
-
 ## Import
 
 1. Идея ```import``` основана на **коцепции модулей**. В чем основная суть этого концепта?
 2. Local **vs** external. В чем разница?
 3. **Specific import**. Как этим пользоваться?
-  - Нужно ли стремиться использовать **specific import** за место импорта всего, что есть в файле? Например, ```import "./Storage.sol"```
-  - Что можно импортировать из файла ```Storage.sol``` для использования в контракте ```SpecificImport```?
+    - Нужно ли стремиться использовать **specific import** за место импорта всего, что есть в файле? Например, ```import "./Storage.sol"```
+    - Что можно импортировать из файла ```Storage.sol``` для использования в контракте ```SpecificImport```?
 
   ```solidity
     /// SpecificImport.sol
@@ -160,19 +242,19 @@
 ## Library
 
 1. Общие вопросы по библиотекам?
-  - Можно ли отправить эфир библиотеке?
-  - Есть ли в библиотеке переменные состояния?
-  - Могут ли библиотеки содержать в себе ```receive()```, ```callback()``` или ```payable``` функции?
-  - Могут ли библиотеки быть уничтожены через вызов ```selfdestruct()```?
-  - Можно ли наследовать библиотеку и быть унаследованным?
+    - Можно ли отправить эфир библиотеке?
+    - Есть ли в библиотеке переменные состояния?
+    - Могут ли библиотеки содержать в себе ```receive()```, ```callback()``` или ```payable``` функции?
+    - Могут ли библиотеки быть уничтожены через вызов ```selfdestruct()```?
+    - Можно ли наследовать библиотеку и быть унаследованным?
 2. Почему использование библиотеки дешевле, чем наследование контрактов?
 3. Какие из перечисленных типов данных можно реализовать в библиотеке?
-  - struct
-  - enum
-  - интерфейс
-  - любую публичную переменную ```uint256 public myVar = 100;```
-  - константу ```uint256 constant MY_CONSTANT = 100;```
-  - модификатор
+    - struct
+    - enum
+    - интерфейс
+    - любую публичную переменную ```uint256 public myVar = 100;```
+    - константу ```uint256 constant MY_CONSTANT = 100;```
+    - модификатор
 4. Какие есть варианты развертывания библиотеки? В чем разница между этими вариантами?
 5. Можно ли объявлять в библиотеках функции без имплементации, как в интерфейсах?
   ```solidity
@@ -188,45 +270,16 @@
 
 1. Какие есть два возможных способа создания контрактов?
 2. Как создать контракт через new? Что на самом деле внутри происходит при создании таким способом?
-3. Для чего нужен constructor? Сколько раз он вызывается? Можно ли делать перегрузку для constructor
+3. Для чего нужен constructor? Сколько раз он вызывается? Можно ли делать перегрузку для constructor?
 4. Как передать эфир при создании контракта?
 5. Как создать контракт через create? Как создать контракт через create2? Какие различия между create и create2? Как у них происходит образование адреса контракта? Почему не безопасно создавать через create?
 6. Можно ли каким-то образом передеплоить смарт-контракт на тот же адрес но с другим кодом?
 7. Что такое Factory pattern в solidity? Какие есть типы? какие преимущества их использования? Когда необходимо их использовать?
 
-- [solidity by example](https://solidity-by-example.org/new-contract/)
+- [Solidity by example](https://solidity-by-example.org/new-contract/)
 - [EVM Dialect](https://docs.soliditylang.org/en/v0.8.18/yul.html#evm-dialect)
-- [about create and create2](https://mixbytes.io/blog/pitfalls-of-using-cteate-cteate2-and-extcodesize-opcodes)
-- [factory patterns](https://blog.logrocket.com/cloning-solidity-smart-contracts-factory-pattern/)
-
-## Upgradeable контракты
-
-1. Что такое обновляемые контракты? Для чего это нужно?
-2. Можно ли мигрировать данные с одного смарт-контракта на другой?
-
--   Как это сделать?
--   Что мешает это сделать или в чем основная сложность?
-
-3. Может ли помочь в обновление кода контрактов разделение хранения данных и логики реализации по разным контрактам?
-4. Можно ли применять поведенческие шаблоны проектирования для разделения хранения данных и логики? Как применить шаблон Strategy?
-
--   Можно ли при использование паттерна Strategy обновить главный контракт логики?
-
-5. Как применить шаблон проектирования Proxy для обновления контрактов?
-
--   Как работает прокси для смарт-контрактов? В чем основной концепт? Как в этом концепте участвует функция `delegateCall()`?
--   Что такое конфликт селекторов функций?
--   Для чего нужен стандарт ERC-1967: Proxy Storage Slots?
--   Что можно рассказать про Transparent proxy? Как он устроен? Для чего предназначался?
--   Что такое UUPS? В чем его отличие от Transparent?
--   Для чего был придуман Beacon Proxy?
--   Что такое EIP-1167? Для чего библиотека Clones от OpenZeppelin? Можно ли обновлять прокси, созданные при помощи этой библиотеки?
-
-6. В чем основная идея Diamond Proxy? Для каких случаеа предназачался этот подход?
-
--   В чем отличие Inherited storage VS Diamond Storage VS App Storage?
-
-7. В чем плюсы и минусы использования обновляемых контрактов?
+- [About create and create2](https://mixbytes.io/blog/pitfalls-of-using-cteate-cteate2-and-extcodesize-opcodes)
+- [Factory patterns](https://blog.logrocket.com/cloning-solidity-smart-contracts-factory-pattern/)
 
 ## Keccak256
 
@@ -240,128 +293,23 @@
 - [Hashing with Keccak256](https://solidity-by-example.org/hashing/)
 - [SHA-3 Standard](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf)
 
-## Digital signatures
+## Upgradeable contracts
 
-1. Что такое цифровая подпись? Для чего используется подпись?
-  - В чем разница между подписью транзакции и подписью произвольного сообщения?
-2. Что такое ECDSA в общих чертах(глубокое математическое понимание не нужно)?
- - Что понимается под обозначением {**r**, **s**, **v**}? Как называется и что решает {**v**}?
-3. В кошельках подпись часто используется в следующем виде:
-  ```solidity
-    0x0f1928d8f26b2d9260929425bdc6ac922f7d787fd73b42afe2548776a0e858016f52826d8ab67e1c84e6e6778fa4769d8aa4f014bf76b3280be77e4e0c447f9b1c
-  ```
-  Как из этого получить {**r**, **s**, **v**}?
-4. Что можно рассказать про следующие стандарты по работе с подписями?
-  - Personal_sign. Как гарантируется, что эта подпись может быть использована только в Ethereum сети?
-  - EIP-191: Signed Data Standard. Для чего используется **0x19**?
-  - EIP-712: Ethereum typed structured data hashing and signing. Что решает Domain? Что решает hashStruct?
-5. Как на контракте проверить подпись?
-  - Что такое ```ecrecover()```?
-  - Что предлагает библиотека OpenZeppelin?
-6. Приведи три примера того, как можно использовать цифровую подпись.
-
-- [Digital signatures](https://ethereum.org/en/glossary/#digital-signatures)
-- [The Magic of Digital Signatures on Ethereum](https://medium.com/mycrypto/the-magic-of-digital-signatures-on-ethereum-98fe184dc9c7)
-- [Intro to Cryptography and Signatures in Ethereum](https://medium.com/immunefi/intro-to-cryptography-and-signatures-in-ethereum-2025b6a4a33d)
-- [Математические и криптографические функции](https://docs.soliditylang.org/en/v0.8.19/units-and-global-variables.html#mathematical-and-cryptographic-functions)
-- [EIP-191](https://eips.ethereum.org/EIPS/eip-191)
-- [Testing EIP-712 Signatures](https://book.getfoundry.sh/tutorials/testing-eip712)
-
-## Meta transactions
-
-1. Что такое метатранзакции?
-2. Для чего можно применять метатранзакции? Назвать не менее трех вариантов использования.
-3. Какая основная идея стандарта ERC-2771?
-  - Какая задача отводится контракту **Forwarder**?
-  - Для чего необходимо использовать ```_msgSender()``` вместо ```msg.sender```?
-4. Gas Station Network - это пример проекта с открытым исходным кодом, который помогает реализовать метатранзакции. Можешь рассказать, как он устроен, как работает, его верхнеуровневую архитектуру?
-  - Для чего необходимо реализовать контракт ```Paymaster```?
-  - Можно ли использовать [контракты из библиотеки OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/metatx) для организации метатранзакций?
-  - Какие еще есть сервисы, которые можно использовать для организации метатранзакций?
-5. Творческий вопрос. Как ты считаешь, на сколько важны метатранзакции? Есть ли у них будущее? Нарушают ли они какие-нибудь законы децентрализации?
-
-  - [Gas-free transactions: Meta Transactions explained](https://medium.com/coinmonks/gas-free-transactions-meta-transactions-explained-f829509a462d)
-  - [ERC-2771](https://eips.ethereum.org/EIPS/eip-2771)
-  - [Gas Station Network](https://docs.opengsn.org/)
-
-## Unchecked Math
-
-1. Что такое **Integer Overflow/Underflow** в solidity?
-2. Для чего используется библиотека Safe Math от OpenZeppelin? Нужно ли в версии solidity выше 0.8 использовать библиотеку Safe Math?
-3. Для чего в solidity существует **unchecked**?
-
-4. Расскажи, что вернет функция ```getCounter()```, после вызова функции ```increase()``` или ```decrease()``` в каждой реализации контракта ```Counter```.
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.0;
-
-contract Counter {
-    uint8 _counter= 255;
-
-    function increase() public payable {
-        _counter++;
-    }
-
-    function getCounter() external view returns(uint8) {
-        return _counter;
-    }
-}
-```
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.0;
-
-contract Counter {
-    uint8 _counter= 255;
-
-    function increase() public payable {
-        unchecked {_counter++;}
-    }
-
-    function getCounter() external view returns(uint8) {
-        return _counter;
-    }
-}
-```
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity 0.7.0;
-
-contract Counter {
-    uint8 _counter= 255;
-
-    function increase() public payable {
-        _counter++;
-    }
-
-    function getCounter() external view returns(uint8) {
-        return _counter;
-    }
-}
-```
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.0;
-
-contract Counter {
-    int8 _counter= -128;
-
-    function decrease() public payable {
-        unchecked {_counter--;}
-    }
-
-    function getCounter() external view returns(int8) {
-        return _counter;
-    }
-}
-```
-
-5. Как можно использовать **unchecked** для уменьшения затрат газа при работе с циклами?
-
-- [Integer Overflow and Underflow](https://blog.solidityscan.com/integer-overflow-and-underflow-in-smart-contracts-9598032b5a99)
-- [Sample Smart Contract to see how it works](https://ethereum-blockchain-developer.com/010-solidity-basics/03-integer-overflow-underflow/)
-- [Unchecked arithmetic trick](https://medium.com/@ashwin.yar/solidity-tips-and-tricks-1-unchecked-arithmetic-trick-cefa18792f0b)
+1. Что такое обновляемые контракты? Для чего это нужно?
+2. Можно ли мигрировать данные с одного смарт-контракта на другой?
+    - Как это сделать?
+    - Что мешает это сделать или в чем основная сложность?
+3. Может ли помочь в обновление кода контрактов разделение хранения данных и логики реализации по разным контрактам?
+4. Можно ли применять поведенческие шаблоны проектирования для разделения хранения данных и логики? Как применить шаблон Strategy?
+    - Можно ли при использование паттерна Strategy обновить главный контракт логики?
+5. Как применить шаблон проектирования Proxy для обновления контрактов?
+    - Как работает прокси для смарт-контрактов? В чем основной концепт? Как в этом концепте участвует функция `delegateCall()`?
+    - Что такое конфликт селекторов функций?
+    - Для чего нужен стандарт ERC-1967: Proxy Storage Slots?
+    - Что можно рассказать про Transparent proxy? Как он устроен? Для чего предназначался?
+    - Что такое UUPS? В чем его отличие от Transparent?
+    - Для чего был придуман Beacon Proxy?
+    - Что такое EIP-1167? Для чего библиотека Clones от OpenZeppelin? Можно ли обновлять прокси, созданные при помощи этой библиотеки?
+6. В чем основная идея Diamond Proxy? Для каких случаеа предназачался этот подход?
+    - В чем отличие Inherited storage VS Diamond Storage VS App Storage?
+7. В чем плюсы и минусы использования обновляемых контрактов?
