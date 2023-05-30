@@ -1,5 +1,15 @@
 # Solidity Junior 2 level
 
-- [Blockchain](./blockchain/README.md)
+## Theory
+
 - [Solidity](./solidity/README.md)
-- [DEFI](./defi/README.md)
+- [DEX](./dex/README.md)
+
+## Practice
+
+- [ERC-1155](./practice/1-erc-1155.md)
+- [DEX](./practice/2-dex.md)
+
+## Recommendations
+
+- [How to DEFI advanced](./how-to-defi-advanced.pdf)
