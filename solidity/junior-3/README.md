@@ -1,5 +1,9 @@
-# Solidity Junior 2 level
+# Solidity Junior 3 level
 
-- [Blockchain](./blockchain/README.md)
+## Theory
+
 - [Solidity](./solidity/README.md)
-- [DEFI](./defi/README.md)
+
+## Practice
+
+## Recommendations
