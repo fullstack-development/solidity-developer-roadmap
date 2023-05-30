@@ -43,7 +43,7 @@ _Важно!_ Для того чтобы начать писать смарт-к
 - [Foundry Test Explorer](https://marketplace.visualstudio.com/items?itemName=naps62.foundry-vscode-test-adapter)
 - [TOML language support](https://marketplace.visualstudio.com/items?itemName=be5invis.toml)
 
-_Важно!_ Нужно быть внимательным. Расширения для поддержки языка могут конфликтовать друг с другом.
+_Важно!_ Нужно быть внимательным. Расширения для поддержки языка могут конфликтовать друг с другом. Не обязательно использовать все расширения сразу.
 
 Список интеграций для других IDE можно посмотреть [тут](https://docs.soliditylang.org/en/v0.8.18/resources.html#editor-integrations).
 
