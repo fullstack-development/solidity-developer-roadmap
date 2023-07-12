@@ -12,7 +12,7 @@
 
 - [Style guides](./style-guides.md)
 - [Комментирование кода](./code-comments.md)
-- [Linting и Formating](./linting-and-formating.md)
+- [Linting и Formatting](./linting-and-formatting.md)
 
 ## Example
 
