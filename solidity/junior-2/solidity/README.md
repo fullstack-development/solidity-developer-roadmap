@@ -102,11 +102,11 @@ contract Counter {
 4. Как можно использовать селекторы функций для оптимизации использования газа в контрактах Solidity?
 5. Как селекторы функции используются в вычислении `interfaceId` для интерфейса смарт-контракта?
 
--   [Solidity docs](https://docs.soliditylang.org/en/develop/abi-spec.html#function-selector)
--   [A technical primer on using encoded function calls](https://medium.com/linum-labs/a-technical-primer-on-using-encoded-function-calls-50e2b9939223)
--   [How To Decipher A Smart Contract Method Call](https://medium.com/@hayeah/how-to-decipher-a-smart-contract-method-call-8ee980311603)
--   [Advanced gas optimization tips for Solidity](https://coinsbench.com/advanced-gas-optimizations-tips-for-solidity-85c47f413dc5#:~:text=to%20gas%20specifications.-,Function%20names,-Solidity%20compiler%20reads)
--   [ERC-165: Standard Interface Detection](https://github.com/fullstack-development/blockchain-wiki/blob/main/EIPs/erc-165.md)
+- [Solidity docs](https://docs.soliditylang.org/en/develop/abi-spec.html#function-selector)
+- [A technical primer on using encoded function calls](https://medium.com/linum-labs/a-technical-primer-on-using-encoded-function-calls-50e2b9939223)
+- [How To Decipher A Smart Contract Method Call](https://medium.com/@hayeah/how-to-decipher-a-smart-contract-method-call-8ee980311603)
+- [Advanced gas optimization tips for Solidity](https://coinsbench.com/advanced-gas-optimizations-tips-for-solidity-85c47f413dc5#:~:text=to%20gas%20specifications.-,Function%20names,-Solidity%20compiler%20reads)
+- [ERC-165: Standard Interface Detection](https://github.com/fullstack-development/blockchain-wiki/blob/main/EIPs/erc-165.md)
 
 ## Contract ABI Specification
 
@@ -122,7 +122,7 @@ contract Counter {
 
 - [Solidity docs](https://docs.soliditylang.org/en/v0.8.19/abi-spec.html#contract-abi-specification)
 
-## Call, staticcall, delegatecall, сalling other сontract
+## Call, staticcall, delegatecall, calling other contract
 
 1. Для чего нужна низкоуровневая функция `call`, какие аргументы принимает?
 2. Что возвращает функция `call`? Как декодировать возвращаемые значения?
@@ -147,7 +147,7 @@ contract Counter {
 
 ## Import
 
-1. Идея ```import``` основана на **коцепции модулей**. В чем основная суть этого концепта?
+1. Идея ```import``` основана на **концепции модулей**. В чем основная суть этого концепта?
 2. Local **vs** external. В чем разница?
 3. **Specific import**. Как этим пользоваться?
     - Нужно ли стремиться использовать **specific import** за место импорта всего, что есть в файле? Например, ```import "./Storage.sol"```
@@ -283,11 +283,11 @@ contract Counter {
 
 ## Keccak256
 
-1. Что такое хэш-функции? Для чего они нужны?
+1. Что такое хеш-функции? Для чего они нужны?
 2. Почему в solidity используется функция `keccak256`?
 3. Как эта функция используется на уровне языка Solidity?
-4. В каких случаях может понадобиться хэшировать данные на смарт-контракте? Как это сделать?
-5. Есть ли различия между хэшированием и шифрованием?
+4. В каких случаях может понадобиться хешировать данные на смарт-контракте? Как это сделать?
+5. Есть ли различия между хешированием и шифрованием?
 
 - [Hashing Functions In Solidity Using Keccak256](https://medium.com/0xcode/hashing-functions-in-solidity-using-keccak256-70779ea55bb0)
 - [Hashing with Keccak256](https://solidity-by-example.org/hashing/)
@@ -310,7 +310,7 @@ contract Counter {
     - Что такое UUPS? В чем его отличие от Transparent?
     - Для чего был придуман Beacon Proxy?
     - Что такое EIP-1167? Для чего библиотека Clones от OpenZeppelin? Можно ли обновлять прокси, созданные при помощи этой библиотеки?
-6. В чем основная идея Diamond Proxy? Для каких случаеа предназачался этот подход?
+6. В чем основная идея Diamond Proxy? Для каких случаев предназначался этот подход?
     - В чем отличие Inherited storage VS Diamond Storage VS App Storage?
 7. В чем плюсы и минусы использования обновляемых контрактов?
 
@@ -320,14 +320,13 @@ contract Counter {
 2. Как в Foundry реализовать процесс тестирования контракта? Что такое Forge Std библиотека? Для чего она нужна?
 3. Какие префиксы бывают у имен тестовых функций?
 4. Будет ли протестирована функция если указать ее видимость как internal или private?
-5. Можно ли использовать вспомогательные контракты для хранения функций и переменных применяемые при тестированиии? Как это сделать?
+5. Можно ли использовать вспомогательные контракты для хранения функций и переменных применяемые при тестировании? Как это сделать?
 6. Что делает функция setUp()? Она обязательная?
-7. Что такое cheatcode и для чего они нужны?
-  Назовите cheatcode под каждый случай:
- - Как вызвать метод от имени другого адреса?
- - Как проверить что метод ревертится с кастомной ошибкой?
- - Как проверить что метод генерирует ивент? Расскажи про boolean параметры в cheatcode  vm.expectEmit(topic1, topic2, topic3, topic4). Что за topic и для чего они нужны?
-8. Как работают читкоды vm.roll и vm.warp?
+7. Что такое cheatcode и для чего они нужны? Назовите cheatcode под каждый случай:
+    - Как вызвать метод от имени другого адреса?
+    - Как проверить что метод ревертится с кастомной ошибкой?
+    - Как проверить что метод генерирует ивент? Расскажи про boolean параметры в cheatcode vm.expectEmit(topic1, topic2, topic3, topic4). Что за topic и для чего они нужны?
+8. Как работают cheatcodes vm.roll и vm.warp?
 9. Можно дебажить вместе с Foundry?
 10. Поддерживает ли Foundry Fork testing? Какие есть способы?
 11. Что такое Fuzz Testing? Для чего это может быть полезно?
