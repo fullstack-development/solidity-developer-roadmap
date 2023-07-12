@@ -13,7 +13,3 @@
 - [Style guides](./style-guides.md)
 - [Комментирование кода](./code-comments.md)
 - [Linting и Formatting](./linting-and-formatting.md)
-
-## Example
-
-Пример настройки hardhat проекта можно посмотреть в [репозитории](https://github.com/PavelNaydanov/HhStarterKit).
