@@ -41,4 +41,5 @@ _Важно!_ Эта секция необязательна, но если эт
 ## Recommendations
 
 - [Code Style](./code-style/readme.md)
+- [Tools](./tools/README.md)
 - [How to DEFI](./how-to-defi.pdf)
