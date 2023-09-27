@@ -213,3 +213,31 @@
 
 - [Evm opcodes](https://www.evm.codes/?fork=shanghai)
 - [The Ethereum Virtual Machine — How does it work?](https://medium.com/mycrypto/the-ethereum-virtual-machine-how-does-it-work-9abac2b7c9e)
+
+## Bitwise operators
+
+1. Что такое бит и байт, в чем отличие?
+2. Что такое знаковые и беззнаковые числа в контексте битов?
+3. Какие бывают виды знаковых чисел? Какой вид самый используемый?
+4. Как работают прямой, обратный и дополнительный код? Какие проблемы могут возникнуть в прямом и обратном коде?
+5. Что такое битовые операции?
+6. Какие существуют битовые операции?
+7. Что такое логические вентили?
+8. Какие действия можно выполнять с битами используя битовые операции?
+9. Что такое битовые сдвиги?
+10. Как работают арифметический, логический и циклический сдвиги? В чем отличия?
+11. Где используются битовые операции и для чего?
+12. Что происходит в этом коде? Как можно сделать то же самое по-другому?
+```js
+    function bitOperation(uint8 number, uint8 index) external pure returns (uint256) {
+        return number & ~(1 << index);
+    }
+```
+
+-   [Двоичные числа](https://asm.kcup.tusur.ru/Library/chapter%201/1-1.html)
+-   [Как два байта переслать](https://pikabu.ru/story/kak_dva_bayta_pereslat_7070913)
+-   [Прямой, обратный и дополнительный код](https://microkontroller.ru/programmirovanie-mikrokontrollerov-avr/pryamoy-obratnyiy-dopolnitelnyiy-kod-dvoichnogo-chisla/)
+-   [Видео: как работают отрицательные числа](https://www.youtube.com/watch?v=BIYiuy8WWiU)
+-   [Bitwise operation](https://en.wikipedia.org/wiki/Bitwise_operation)
+-   [Видео: как работать с битами](https://www.youtube.com/watch?v=qewavPO6jcA)
+-   [Побитовые операции](https://neerc.ifmo.ru/wiki/index.php?title=%D0%9F%D0%BE%D0%B1%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8)
