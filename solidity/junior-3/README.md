@@ -3,6 +3,7 @@
 ## Theory
 
 - [Solidity](./solidity/README.md)
+- [Lending protocols](./lending/README.md)
 
 ## Practice
 
