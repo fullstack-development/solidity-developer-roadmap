@@ -1,5 +1,5 @@
 
-## DAO и DAO governance
+# Вопросы по DAO и DAO governance
 
 1. Что такое DAO (Decentralized autonomous organization)?
     - Чем DAO отличается от DO (Decentralized organization)? От DA (Decentralized application)?
