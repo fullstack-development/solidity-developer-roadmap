@@ -16,4 +16,4 @@
 
 ## Recommendations
 
-- [How to DEFI advanced](./how-to-defi-advanced.pdf)
+- [How to DEFI: Advanced](https://landing.coingecko.com/how-to-defi/)
