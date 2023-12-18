@@ -42,4 +42,4 @@ _Важно!_ Эта секция необязательна, но если эт
 
 - [Code Style](./code-style/readme.md)
 - [Tools](./tools/README.md)
-- [How to DEFI](./how-to-defi.pdf)
+- [How To DeFi: Beginner](https://landing.coingecko.com/how-to-defi/)
