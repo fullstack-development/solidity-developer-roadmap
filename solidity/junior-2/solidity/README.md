@@ -157,7 +157,6 @@ contract Counter {
     /// SpecificImport.sol
 
     // SPDX-License-Identifier: MIT
-
     pragma solidity 0.8.17;
 
     import {
@@ -171,7 +170,6 @@ contract Counter {
     /// Storage.sol
 
     // SPDX-License-Identifier: MIT
-
     pragma solidity 0.8.17;
 
     address constant OWNER = 0x607B5e673D3ea42A0F85aDD6f529196500FC9E04;
@@ -292,6 +290,31 @@ contract Counter {
 - [Hashing Functions In Solidity Using Keccak256](https://medium.com/0xcode/hashing-functions-in-solidity-using-keccak256-70779ea55bb0)
 - [Hashing with Keccak256](https://solidity-by-example.org/hashing/)
 - [SHA-3 Standard](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf)
+
+## Commitment scheme
+
+1. Что такое commitment scheme (можно встретить название commit-reveal scheme)? Какие этапы в себя включает?
+2. Для каких случаев необходимо применять commitment scheme? Привести не меньше трех use cases.
+3. Какую роль играет хеширование и алгоритм `keccak256` в commitment scheme?
+4. Задача: реализовать простой смарт-контракт, демонстрирующий работу commitment scheme.
+    > **Игра "данетка"**.
+    > Первый игрок загадывает строку, фиксирует загаданное на блокчейне (для этого необходимо вызвать функцию `commit()`). Затем второй игрок угадывает строку по наводящим вопросам, при этом первый игрок может отвечать да или нет. В конце игры, первый игрок раскрывает строку, которая была загадана (для этого необходимо вызвать функцию `reveal()`), чтобы доказать, что загаданное было отгадано (или не отгадано).
+
+    ```solidity
+    contract YesOrNo {
+        function commit(bytes32 hash) external {
+            // TODO: реализовать сохранение загаданного слова или фразы
+        }
+
+        function reveal(string memory value) external returns (string memory) {
+            // TODO: реализовать раскрытие сохраненной строки
+        }
+    }
+    ```
+
+- [Commitment scheme](https://en.wikipedia.org/wiki/Commitment_scheme)
+- [Exploring Commit-Reveal Schemes on Ethereum](https://medium.com/@0xkaden/exploring-commit-reveal-schemes-on-ethereum-c4ff5a777db8)
+- [Blind auction](https://docs.soliditylang.org/en/v0.8.23/solidity-by-example.html#id2)
 
 ## Digital signatures
 
