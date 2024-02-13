@@ -22,9 +22,38 @@
 13. Возможно ли установить нулевые значения для `gasLimit`, `maxFeePerGas` или `maxPriorityFee`? Каковы будут последствия в каждом случае?
 14. Какие типы транзакций существуют в Ethereum и в чем их отличия?
 
+## Вопросы по gas used
+
+1. За что отвечает параметр `gasUsed` в транзакции EVM и может ли он превышать `gasLimit`?
+2. На что тратиться газ внутри EVM?
+3. Когда возникает ошибка "out of gas"?
+4. В каких ситуациях неиспользованный газ возвращается при возникновении ошибки EVM и когда нет?
+5. Какие функции клиента go-ethereum ответственны за обработку транзакций и выполнение кода смарт-контрактов?
+6. В чем различие между выполнением транзакции с вызовом смарт-контракта и без него?
+7. Что такое статический и динамический газ в контексте EVM и как они рассчитываются?
+8. Могут ли у операции в EVM отсутствовать затраты на динамический газ?
+9. Как рассчитывается газ при работе с `memory`?
+10. Какова роль значений `original`, `current` и `new` при записи данных в хранилище смарт-контракта?
+11. Описать статусы хранилища (storage): "Dirty", "Fresh" и "No-op".
+12. Для чего нужен был хард-форк St.Petersburg?
+13. Что представляют собой "теплые" и "холодные" доступы к слотам хранилища?
+14. Что такое списки доступа, как они работают и зачем они нужны?
+15. Зачем нужен механизм возврата газа при очистке хранилища и в каких случаях он может быть полезен?
+16. Что такое внутренний газ (intrinsic gas) транзакции и из чего он складывается?
+    - Как считается газ за `calldata`?
+    - Какой G-параметр учитывается в каждой транзакции?
+17. Как происходит учет газа на уровне блока?
+18. Как выглядит процесс учета газа на уровне транзакции?
+
 ## Links
 
--   [Article: How does Ethereum work](https://www.preethikasireddy.com/post/how-does-ethereum-work-anyway)
--   [Doc: Ethereum Whitepaper](https://ethereum.org/en/whitepaper#fees)
--   [Doc: Ethereum Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf)
 -   [EIP-1559: Fee market change for ETH 1.0 chain](https://eips.ethereum.org/EIPS/eip-1559)
+-   [Doc: Ethereum Whitepaper](https://ethereum.org/en/whitepaper#fees)
+-   [Doc: Ethereum Yellow Paper](https://ethereum.github.io/yellowpaper/paper.pdf)
+-   [Article: How does Ethereum work](https://www.preethikasireddy.com/post/how-does-ethereum-work-anyway)
+-   [Article: Understanding the Ethereum virtual machine – part I](https://leftasexercise.com/2021/09/12/understanding-the-ethereum-virtual-machine-part-i/)
+-   [Article: Understanding the Ethereum virtual machine – part II](https://leftasexercise.com/2021/09/15/understanding-the-ethereum-virtual-machine-part-ii/)
+-   [Article: Understanding the Ethereum virtual machine – part III](https://leftasexercise.com/2021/09/19/q-understanding-the-ethereum-virtual-machine-part-iii/)
+-   [Article: Dissecting EVM using go-ethereum Eth client implementation. Part III — bytecode interpreter](https://medium.com/@deliriusz/dissecting-evm-using-go-ethereum-eth-client-implementation-part-iii-bytecode-interpreter-8f144004ed7a)
+-   [Article: EIP-2930 - Ethereum access list](https://www.rareskills.io/post/eip-2930-optional-access-list-ethereum)
+-   [Code: Go-Ethereum](https://github.com/ethereum/go-ethereum)
