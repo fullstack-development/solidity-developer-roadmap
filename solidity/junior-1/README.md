@@ -37,6 +37,7 @@ _Важно!_ Эта секция необязательна, но если эт
 - [ERC-20](./practice/2-erc-20.md)
 - [ERC-721](./practice/3-erc-721.md)
 - [Marketplace](./practice/4-marketplace.md)
+- [Vault](./practice/5-vault.md)
 
 ## Recommendations
 
