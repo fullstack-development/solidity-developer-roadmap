@@ -30,7 +30,6 @@ _Важно!_ Для того чтобы начать писать смарт-к
 ### Общие расширения
 - [Поддержка языка Solidity](https://juan.blanco.ws/solidity-contracts-in-visual-studio-code/).
 - [Solidity Visual Developer](https://marketplace.visualstudio.com/items?itemName=tintinweb.solidity-visual-auditor).
-- [Ethereum Remix](https://marketplace.visualstudio.com/items?itemName=RemixProject.ethereum-remix)
 - [Solidity+Yul Semantic Syntax](https://marketplace.visualstudio.com/items?itemName=ContractShark.solidity-lang)
 
 ### HardHat
