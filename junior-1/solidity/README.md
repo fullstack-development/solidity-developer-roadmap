@@ -69,8 +69,8 @@
 ## Типы. Reference types
 
 1. Что можешь рассказать про reference types?
-    - Data location(storage, memory, calldata)
-    - Массивы(динамические и с фиксированной длиной)
+    - Data location (storage, memory, calldata)
+    - Массивы (динамические и с фиксированной длиной)
     - Структуры
 2. Как получить длину массива?
 3. Как добавлять данные в массив?
@@ -173,3 +173,69 @@ contract C {
 1. Что такое библиотека?
 2. Как подключить библиотеку?
     - Что такое using for?
+
+
+## Интересные вопросы
+
+1. Округление при делении.
+    - Какой ожидается результат вызова функции `roundingDivision()`? В чем заключается проблема? Как это можно обойти?
+        ```solidity
+        function roundingDivision() external pure returns (uint256) {
+            return uint256(7) / uint256(5);
+        }
+        ```
+    - Какой ожидается результат вызова функции `divisionByZero()`?
+        ```solidity
+        function divisionByZero() external pure returns (uint256) {
+            return uint256(7) / 0;
+        }
+        ```
+2. Что произойдет при вызове функции `setOwner(addressB, anyAccount)` на контракте A? Чему будет равен вызов функций `manager()` и `owner()`? Почему важен порядок переменных в этих двух контрактах?
+    ```solidity
+    contract A {
+        address public manager;
+        address public owner;
+
+        function setOwner(address target, address account) external {
+            (bool success,) = target.delegatecall(
+                abi.encodeWithSignature("setOwner(address)", account)
+            );
+
+            if (!success) {
+                revert();
+            }
+        }
+    }
+
+    contract B {
+        address public owner;
+        address public manager;
+
+        function setOwner(address account) external {
+            owner = account;
+        }
+    }
+    ```
+3. Работа модификаторов. Что вернут переменные `stateA`, `stateB`, `stateC` после вызова функции changeStates()?
+    ```solidity
+    contract Modifier {
+        uint256 public stateA;
+        uint256 public stateB;
+        uint256 public stateC;
+
+        modifier changeStateA() {
+            stateA++;
+            _;
+        }
+
+        modifier changeStateB() {
+            _;
+            stateB++;
+            _;
+        }
+
+        function changeStates() external changeStateA changeStateB {
+            stateC++;
+        }
+    }
+    ```
