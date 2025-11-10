@@ -7,10 +7,34 @@
     - Какой тип блока catch используется для ```revert("reasonString")```?
     - Какой тип блока catch используется, если ошибка была вызвана делением на ноль?
     - Какие типы блока catch используется, если ошибка не подходит под два предыдущих случая, но ошибку необходимо обработать?
-3. Чем отличается try / catch от других вариантов обработки ошибок(require, assert, revert)?
+3. Чем отличается try / catch от других вариантов обработки ошибок (require, assert, revert)?
 4. Может ли вызов функции через call заменить конструкцию try / catch?
+5. Можно ли обработать внутреннюю ошибку внутри смарт-контракта при помощи try / catch или это только для внешних вызовов?
+    - Какой из из вызовов `revert` действительно отменит транзакцию?
+        ```solidity
+        contract B {
+            function callMe() external {
+                require(false);
+            }
+        }
+
+        contract A {
+            function callMe(B b) external {
+                try b.callMe() {
+                    revert();
+                } catch Panic(uint256 errorCode) {
+                    revert();
+                } catch Error(string memory reason) {
+                    revert();
+                } catch (bytes memory lowLevelData) {
+                    revert();
+                }
+            }
+        }
+        ```
 
 - [Solidity docs](https://docs.soliditylang.org/en/v0.8.19/control-structures.html#try-catch)
+- [Try Catch and all the ways Solidity can revert](https://www.rareskills.io/post/try-catch-solidity)
 
 ## Unchecked Math
 
@@ -25,7 +49,7 @@
 pragma solidity 0.8.0;
 
 contract Counter {
-    uint8 _counter= 255;
+    uint8 _counter = 255;
 
     function increase() public payable {
         _counter++;
@@ -42,27 +66,12 @@ contract Counter {
 pragma solidity 0.8.0;
 
 contract Counter {
-    uint8 _counter= 255;
+    uint8 _counter = 255;
 
     function increase() public payable {
-        unchecked {_counter++;}
-    }
-
-    function getCounter() external view returns(uint8) {
-        return _counter;
-    }
-}
-```
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity 0.7.0;
-
-contract Counter {
-    uint8 _counter= 255;
-
-    function increase() public payable {
-        _counter++;
+        unchecked {
+            _counter++;
+        }
     }
 
     function getCounter() external view returns(uint8) {
@@ -79,10 +88,35 @@ contract Counter {
     int8 _counter= -128;
 
     function decrease() public payable {
-        unchecked {_counter--;}
+        unchecked {
+            _counter--;
+        }
     }
 
     function getCounter() external view returns(int8) {
+        return _counter;
+    }
+}
+```
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.0;
+
+contract Counter {
+    uint8 _counter = 255;
+
+    function increase() public payable {
+        unchecked {
+            _increase();
+        }
+    }
+
+    function _increase() private {
+        _counter++;
+    }
+
+    function getCounter() external view returns(uint8) {
         return _counter;
     }
 }
@@ -268,7 +302,7 @@ contract Counter {
 
 1. Какие есть два возможных способа создания контрактов?
 2. Как создать контракт через new? Что на самом деле внутри происходит при создании таким способом?
-3. Для чего нужен constructor? Сколько раз он вызывается? Можно ли делать перегрузку для constructor?
+3. Для чего нужен constructor? Сколько раз он вызывается? Можно ли делать перегрузку для constructor? Является ли constructor частью байт-кода контракта?
 4. Как передать эфир при создании контракта?
 5. Как создать контракт через create? Как создать контракт через create2? Какие различия между create и create2? Как у них происходит образование адреса контракта? Почему не безопасно создавать через create?
 6. Можно ли каким-то образом передеплоить смарт-контракт на тот же адрес но с другим кодом?
@@ -278,6 +312,7 @@ contract Counter {
 - [EVM Dialect](https://docs.soliditylang.org/en/v0.8.18/yul.html#evm-dialect)
 - [About create and create2](https://mixbytes.io/blog/pitfalls-of-using-cteate-cteate2-and-extcodesize-opcodes)
 - [Factory patterns](https://blog.logrocket.com/cloning-solidity-smart-contracts-factory-pattern/)
+- [Ethereum smart contract creation code](https://www.rareskills.io/post/ethereum-contract-creation-code)
 
 ## Keccak256
 
